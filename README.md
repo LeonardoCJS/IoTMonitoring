@@ -42,7 +42,7 @@ Sistema de monitoramento de dispositivos IoT com arquitetura em camadas (Domain,
 
 ### Pre-requisitos
 - .NET SDK 8.0+
-- SQL Server (somente para execucao normal da API/Web)
+- Oracle Database (somente para execucao normal da API/Web)
 
 ### Configuracoes importantes
 Arquivo: `src/IoTMonitoring.API/appsettings.json`
@@ -52,6 +52,10 @@ Arquivo: `src/IoTMonitoring.API/appsettings.json`
 
 Arquivo: `src/IoTMonitoring.Web/appsettings.json`
 - `ConnectionStrings:DefaultConnection`
+
+### Exemplo de connection string (Oracle)
+Use o formato abaixo em `ConnectionStrings:DefaultConnection` (API e Web):
+`User Id=SEULOGIN;Password=SUASENHA;Data Source=oracle.fiap.com.br:1521/orcl;`
 
 ## Comandos uteis
 

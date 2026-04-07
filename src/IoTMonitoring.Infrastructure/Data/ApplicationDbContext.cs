@@ -36,7 +36,7 @@ namespace IoTMonitoring.Infrastructure.Data
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.DeviceId).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.SensorType).IsRequired().HasMaxLength(100);
-                entity.Property(e => e.Value).IsRequired().HasColumnType("decimal(18,2)");
+                entity.Property(e => e.Value).IsRequired().HasPrecision(18, 2);
                 entity.Property(e => e.Unit).IsRequired().HasMaxLength(50);
                 entity.Property(e => e.Timestamp).IsRequired();
 

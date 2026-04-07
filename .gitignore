@@ -1,0 +1,39 @@
+## Build results
+**/[Bb]in/
+**/[Oo]bj/
+
+## Visual Studio / VS Code
+.vs/
+.vscode/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider
+.idea/
+
+## NuGet
+*.nupkg
+*.snupkg
+**/packages/
+
+## Logs
+**/logs/
+*.log
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Coverage / test results
+**/TestResults/
+*.coverage
+*.coveragexml
+
+## EF Core
+**/Migrations/**/bin/
+**/Migrations/**/obj/
+

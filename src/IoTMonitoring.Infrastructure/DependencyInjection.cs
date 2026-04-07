@@ -13,7 +13,7 @@ namespace IoTMonitoring.Infrastructure
         {
             // Database Context
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                options.UseOracle(configuration.GetConnectionString("DefaultConnection")));
 
             // Repositories
             services.AddScoped<IDeviceRepository, DeviceRepository>();
