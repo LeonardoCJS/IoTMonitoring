@@ -1,0 +1,12 @@
+@model EditDeviceViewModel
+@{
+    ViewData["Title"] = "Editar Dispositivo";
+}
+<h1>Editar Dispositivo</h1>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3"><label asp-for="Name" class="form-label"></label><input asp-for="Name" class="form-control" /><span asp-validation-for="Name" class="text-danger"></span></div>
+    <div class="mb-3"><label asp-for="Location" class="form-label"></label><input asp-for="Location" class="form-control" /><span asp-validation-for="Location" class="text-danger"></span></div>
+    <div class="mb-3"><label asp-for="Status" class="form-label"></label><input asp-for="Status" class="form-control" /><span asp-validation-for="Status" class="text-danger"></span></div>
+    <button class="btn btn-primary" type="submit">Atualizar</button>
+</form>

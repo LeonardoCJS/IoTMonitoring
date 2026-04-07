@@ -1,0 +1,28 @@
+@model PaginatedViewModel<SensorDataViewModel>
+@{
+    ViewData["Title"] = "Dados de Sensores";
+    var search = ViewBag.Search as SensorDataSearchViewModel ?? new SensorDataSearchViewModel();
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Dados de Sensores</h1>
+    <a class="btn btn-primary" asp-action="Create">Nova leitura</a>
+</div>
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-md-3"><input class="form-control" name="DeviceId" value="@search.DeviceId" placeholder="DeviceId" /></div>
+    <div class="col-md-3"><input class="form-control" name="SensorType" value="@search.SensorType" placeholder="Tipo Sensor" /></div>
+    <div class="col-md-2"><input class="form-control" type="date" name="StartDate" value="@search.StartDate?.ToString("yyyy-MM-dd")" /></div>
+    <div class="col-md-2"><input class="form-control" type="date" name="EndDate" value="@search.EndDate?.ToString("yyyy-MM-dd")" /></div>
+    <div class="col-md-2"><button class="btn btn-outline-primary w-100" type="submit">Buscar</button></div>
+</form>
+
+<table class="table table-striped">
+    <thead><tr><th>DeviceId</th><th>Tipo</th><th>Valor</th><th>Unidade</th><th>Timestamp</th></tr></thead>
+    <tbody>
+    @foreach (var row in Model.Items)
+    {
+        <tr><td>@row.DeviceId</td><td>@row.SensorType</td><td>@row.Value</td><td>@row.Unit</td><td>@row.Timestamp</td></tr>
+    }
+    </tbody>
+</table>

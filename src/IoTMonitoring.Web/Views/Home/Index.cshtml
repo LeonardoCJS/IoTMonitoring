@@ -1,0 +1,29 @@
+@model HomeViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1 class="mb-4">Dashboard IoT</h1>
+
+<div class="row g-3">
+    <div class="col-md-3"><div class="card"><div class="card-body"><strong>Total:</strong> @Model.TotalDevices</div></div></div>
+    <div class="col-md-3"><div class="card"><div class="card-body text-success"><strong>Online:</strong> @Model.OnlineDevices</div></div></div>
+    <div class="col-md-3"><div class="card"><div class="card-body text-secondary"><strong>Offline:</strong> @Model.OfflineDevices</div></div></div>
+    <div class="col-md-3"><div class="card"><div class="card-body text-danger"><strong>Erro:</strong> @Model.ErrorDevices</div></div></div>
+</div>
+
+<h3 class="mt-4">Dispositivos recentes</h3>
+<table class="table table-striped">
+    <thead><tr><th>Nome</th><th>ID</th><th>Status</th><th></th></tr></thead>
+    <tbody>
+    @foreach (var item in Model.RecentDevices)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.DeviceId</td>
+            <td>@item.Status</td>
+            <td><a class="btn btn-sm btn-outline-primary" asp-controller="Devices" asp-action="Details" asp-route-id="@item.Id">Detalhes</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

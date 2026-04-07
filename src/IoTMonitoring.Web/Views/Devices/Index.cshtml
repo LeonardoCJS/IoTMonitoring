@@ -1,0 +1,28 @@
+@model PaginatedViewModel<DeviceViewModel>
+@{
+    ViewData["Title"] = "Dispositivos";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Dispositivos</h1>
+    <a class="btn btn-primary" asp-action="Create">Novo dispositivo</a>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr><th>Nome</th><th>DeviceId</th><th>Status</th><th>Localização</th><th></th></tr>
+    </thead>
+    <tbody>
+    @foreach (var d in Model.Items)
+    {
+        <tr>
+            <td>@d.Name</td><td>@d.DeviceId</td><td>@d.Status</td><td>@d.Location</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@d.Id">Detalhes</a> |
+                <a asp-action="Edit" asp-route-id="@d.Id">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@d.Id">Excluir</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

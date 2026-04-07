@@ -1,0 +1,13 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = IoTMonitoring.Infrastructure
+build_property.ProjectDir = C:\Users\leona\OneDrive\Documentos\Sprints\Sprint 3 dotnet 2026\IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd\IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd\IoTMonitoring-main\src\IoTMonitoring.Infrastructure\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

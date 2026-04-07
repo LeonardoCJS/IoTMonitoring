@@ -1,0 +1,12 @@
+@model CreateSensorDataViewModel
+@{
+    ViewData["Title"] = "Nova Leitura";
+}
+<h1>Nova Leitura de Sensor</h1>
+<form asp-action="Create" method="post">
+    <div class="mb-3"><label asp-for="DeviceId" class="form-label"></label><input asp-for="DeviceId" class="form-control" /><span asp-validation-for="DeviceId" class="text-danger"></span></div>
+    <div class="mb-3"><label asp-for="SensorType" class="form-label"></label><input asp-for="SensorType" class="form-control" /><span asp-validation-for="SensorType" class="text-danger"></span></div>
+    <div class="mb-3"><label asp-for="Value" class="form-label"></label><input asp-for="Value" class="form-control" /><span asp-validation-for="Value" class="text-danger"></span></div>
+    <div class="mb-3"><label asp-for="Unit" class="form-label"></label><input asp-for="Unit" class="form-control" /><span asp-validation-for="Unit" class="text-danger"></span></div>
+    <button class="btn btn-primary" type="submit">Salvar</button>
+</form>

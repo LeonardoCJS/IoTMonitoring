@@ -1,0 +1,71 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = IoTMonitoring.Web
+build_property.RootNamespace = IoTMonitoring.Web
+build_property.ProjectDir = C:\Users\leona\OneDrive\Documentos\Sprints\Sprint 3 dotnet 2026\IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd\IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd\IoTMonitoring-main\src\IoTMonitoring.Web\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\leona\OneDrive\Documentos\Sprints\Sprint 3 dotnet 2026\IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd\IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd\IoTMonitoring-main\src\IoTMonitoring.Web
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/Devices/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/Devices/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/Devices/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/Devices/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/Devices/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/Home/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/SensorData/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vuc29yRGF0YVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/SensorData/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vuc29yRGF0YVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leona/OneDrive/Documentos/Sprints/Sprint 3 dotnet 2026/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-f3f96bd31f0c03b2b27b6112ff9c5df9e46f58cd/IoTMonitoring-main/src/IoTMonitoring.Web/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

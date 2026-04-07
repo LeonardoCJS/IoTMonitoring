@@ -1,0 +1,6 @@
+{
+  "IoTMonitoring.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "X:\\src\\IoTMonitoring.API",
+  "IoTMonitoring.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "X:\\src\\IoTMonitoring.Application",
+  "IoTMonitoring.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "X:\\src\\IoTMonitoring.Domain",
+  "IoTMonitoring.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "X:\\src\\IoTMonitoring.Infrastructure"
+}
