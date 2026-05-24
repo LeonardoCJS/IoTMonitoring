@@ -10,6 +10,7 @@ namespace IoTMonitoring.Application
         {
             services.AddScoped<IDeviceService, DeviceService>();
             services.AddScoped<ISensorDataService, SensorDataService>();
+            services.AddScoped<ISensorAlertService, SensorAlertService>();
             services.AddAutoMapper(typeof(MappingProfile));
             return services;
         }

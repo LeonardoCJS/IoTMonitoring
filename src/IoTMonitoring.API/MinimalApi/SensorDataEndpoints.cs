@@ -99,7 +99,23 @@ namespace IoTMonitoring.API.MinimalApi
                 }
             })
             .WithName("SearchSensorData")
-            .WithSummary("Busca dados de sensores com paginação e filtros");
+            .WithSummary("Busca dados de sensores com paginação e filtros")
+            .WithDescription("""
+                Retorna uma lista paginada de leituras de sensores para um dispositivo específico.
+
+                O parâmetro `deviceId` é **obrigatório**. Os demais são opcionais.
+
+                **Filtros disponíveis:**
+                - `startDate` / `endDate`: intervalo de data/hora da leitura (formato ISO 8601, ex: `2024-06-01T00:00:00Z`)
+                - `sensorType`: filtra pelo tipo do sensor (busca parcial, case-insensitive)
+
+                **Ordenação (`sortBy`):** `timestamp` (padrão, decrescente), `value`, `sensortype`
+
+                A resposta inclui links HATEOAS para navegação entre páginas (`self`, `previous`, `next`).
+                """)
+            .Produces<PagedResult<SensorDataDto>>(200, "application/json")
+            .Produces(400)
+            .ProducesProblem(500);
 
             group.MapGet("/device/{deviceId}", async (
                 string deviceId,
@@ -130,7 +146,22 @@ namespace IoTMonitoring.API.MinimalApi
                 }
             })
             .WithName("GetSensorDataByDevice")
-            .WithSummary("Retorna dados de sensores por dispositivo");
+            .WithSummary("Retorna dados de sensores por dispositivo")
+            .WithDescription("""
+                Retorna todas as leituras de sensores de um dispositivo específico, identificado pelo `deviceId`.
+
+                **Filtros opcionais via query string:**
+                - `startDate`: data/hora inicial do intervalo (ISO 8601)
+                - `endDate`: data/hora final do intervalo (ISO 8601)
+
+                Cada leitura na resposta inclui links HATEOAS:
+                - `self` — GET para o detalhe da leitura
+                - `device` — GET para os detalhes do dispositivo
+
+                Para consultas com paginação e ordenação, utilize o endpoint `/search`.
+                """)
+            .Produces<IEnumerable<HateoasResponse<SensorDataDto>>>(200, "application/json")
+            .ProducesProblem(500);
 
             group.MapPost("/", async ([FromBody] CreateSensorDataDto createDto, [FromServices] ISensorDataService sensorDataService, HttpContext httpContext) =>
             {
@@ -161,7 +192,21 @@ namespace IoTMonitoring.API.MinimalApi
                 }
             })
             .WithName("AddSensorData")
-            .WithSummary("Adiciona novos dados de sensor");
+            .WithSummary("Adiciona novos dados de sensor")
+            .WithDescription("""
+                Registra uma nova leitura de sensor para um dispositivo existente.
+
+                O `DeviceId` informado no corpo deve corresponder a um dispositivo já cadastrado.
+
+                Em caso de sucesso, retorna **201** com a leitura criada e links HATEOAS:
+                - `self` — GET para esta leitura
+                - `device-data` — GET para todas as leituras do dispositivo
+                - `device` — GET para os detalhes do dispositivo
+                """)
+            .Produces<HateoasResponse<SensorDataDto>>(201, "application/json")
+            .Produces(400)
+            .ProducesProblem(500)
+            .RequireAuthorization();
 
             group.MapPost("/bulk", async ([FromBody] IEnumerable<CreateSensorDataDto> createDtos, [FromServices] ISensorDataService sensorDataService) =>
             {
@@ -180,7 +225,19 @@ namespace IoTMonitoring.API.MinimalApi
                 }
             })
             .WithName("AddBulkSensorData")
-            .WithSummary("Adiciona múltiplos dados de sensor de uma vez");
+            .WithSummary("Adiciona múltiplos dados de sensor de uma vez")
+            .WithDescription("""
+                Registra um lote de leituras de sensores em uma única requisição. Ideal para dispositivos que enviam dados em batch.
+
+                Todos os `DeviceId` informados devem corresponder a dispositivos já cadastrados.
+
+                Retorna **200** com a contagem de registros inseridos.
+                Retorna **400** se algum dado do lote for inválido.
+                """)
+            .Produces<object>(200, "application/json")
+            .Produces(400)
+            .ProducesProblem(500)
+            .RequireAuthorization();
         }
     }
 }

@@ -100,7 +100,20 @@ namespace IoTMonitoring.API.MinimalApi
                 }
             })
             .WithName("SearchDevices")
-            .WithSummary("Busca dispositivos com paginação, ordenação e filtros");
+            .WithSummary("Busca dispositivos com paginação, ordenação e filtros")
+            .WithDescription("""
+                Retorna uma lista paginada de dispositivos IoT.
+
+                **Filtros disponíveis:**
+                - `status`: filtra pelo status do dispositivo (`Online`, `Offline`, `Error`)
+                - `location`: filtra por trecho do nome da localização (busca parcial, case-insensitive)
+
+                **Ordenação (`sortBy`):** `name`, `status`, `lastseen`
+
+                A resposta inclui links HATEOAS para navegação entre páginas (`self`, `previous`, `next`).
+                """)
+            .Produces<PagedResult<DeviceDto>>(200, "application/json")
+            .ProducesProblem(500);
 
             group.MapGet("/", async ([FromServices] IDeviceService deviceService, HttpContext httpContext) =>
             {
@@ -128,7 +141,20 @@ namespace IoTMonitoring.API.MinimalApi
                 }
             })
             .WithName("GetAllDevices")
-            .WithSummary("Retorna todos os dispositivos com HATEOAS");
+            .WithSummary("Retorna todos os dispositivos com HATEOAS")
+            .WithDescription("""
+                Retorna a lista completa de dispositivos IoT cadastrados no sistema.
+
+                Cada item da resposta inclui links HATEOAS com as ações disponíveis:
+                - `self` — GET para obter os detalhes do dispositivo
+                - `update` — PUT para atualizar o dispositivo
+                - `delete` — DELETE para remover o dispositivo
+                - `sensor-data` — GET para consultar as leituras de sensores do dispositivo
+
+                Para consultas com paginação e filtros, utilize o endpoint `/search`.
+                """)
+            .Produces<IEnumerable<HateoasResponse<DeviceDto>>>(200, "application/json")
+            .ProducesProblem(500);
 
             group.MapGet("/{id}", async (int id, [FromServices] IDeviceService deviceService, HttpContext httpContext) =>
             {
@@ -162,7 +188,23 @@ namespace IoTMonitoring.API.MinimalApi
                 }
             })
             .WithName("GetDeviceById")
-            .WithSummary("Retorna um dispositivo específico com HATEOAS");
+            .WithSummary("Retorna um dispositivo específico com HATEOAS")
+            .WithDescription("""
+                Retorna os detalhes completos de um dispositivo IoT pelo seu ID interno.
+
+                A resposta inclui links HATEOAS com todas as ações disponíveis para o dispositivo:
+                - `self` — GET para recarregar este recurso
+                - `all-devices` — GET para listar todos os dispositivos
+                - `update` — PUT para atualizar o dispositivo
+                - `delete` — DELETE para remover o dispositivo
+                - `update-status` — PATCH para alterar apenas o status
+                - `sensor-data` — GET para consultar leituras de sensores
+
+                Retorna **404** caso o dispositivo não seja encontrado.
+                """)
+            .Produces<HateoasResponse<DeviceDto>>(200, "application/json")
+            .Produces(404)
+            .ProducesProblem(500);
 
             group.MapPost("/", async ([FromBody] CreateDeviceDto createDto, [FromServices] IDeviceService deviceService, HttpContext httpContext) =>
             {
@@ -193,7 +235,18 @@ namespace IoTMonitoring.API.MinimalApi
                 }
             })
             .WithName("CreateDevice")
-            .WithSummary("Cria um novo dispositivo");
+            .WithSummary("Cria um novo dispositivo")
+            .WithDescription("""
+                Cadastra um novo dispositivo IoT no sistema.
+
+                O `DeviceId` informado deve ser único. Caso já exista um dispositivo com o mesmo `DeviceId`, a requisição retornará **400**.
+
+                Em caso de sucesso, retorna **201** com o recurso criado e links HATEOAS para as ações disponíveis.
+                """)
+            .Produces<HateoasResponse<DeviceDto>>(201, "application/json")
+            .Produces(400)
+            .ProducesProblem(500)
+            .RequireAuthorization();
 
             group.MapPatch("/{id}/status", async (int id, [FromBody] string status, [FromServices] IDeviceService deviceService) =>
             {
@@ -216,7 +269,21 @@ namespace IoTMonitoring.API.MinimalApi
                 }
             })
             .WithName("UpdateDeviceStatus")
-            .WithSummary("Atualiza o status de um dispositivo");
+            .WithSummary("Atualiza o status de um dispositivo")
+            .WithDescription("""
+                Altera o status operacional de um dispositivo IoT.
+
+                **Valores válidos para `status`:** `Online`, `Offline`, `Error`
+
+                Retorna **204** em caso de sucesso (sem corpo na resposta).
+                Retorna **400** se o valor de status for inválido.
+                Retorna **404** se o dispositivo não for encontrado.
+                """)
+            .Produces(204)
+            .Produces(400)
+            .Produces(404)
+            .ProducesProblem(500)
+            .RequireAuthorization();
 
             group.MapDelete("/{id}", async (int id, [FromServices] IDeviceService deviceService) =>
             {
@@ -235,7 +302,19 @@ namespace IoTMonitoring.API.MinimalApi
                 }
             })
             .WithName("DeleteDevice")
-            .WithSummary("Exclui um dispositivo");
+            .WithSummary("Exclui um dispositivo")
+            .WithDescription("""
+                Remove permanentemente um dispositivo IoT do sistema pelo seu ID interno.
+
+                **Atenção:** esta operação é irreversível. Os dados de sensores associados ao dispositivo também serão removidos.
+
+                Retorna **204** em caso de sucesso.
+                Retorna **404** se o dispositivo não for encontrado.
+                """)
+            .Produces(204)
+            .Produces(404)
+            .ProducesProblem(500)
+            .RequireAuthorization();
         }
     }
 }
